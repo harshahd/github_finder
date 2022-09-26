@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const UserItem=(props) => {
         if(props.user)
@@ -6,7 +7,7 @@ const UserItem=(props) => {
         return (
         <div className="user-profile">
         <h3>{props.user.login}</h3>
-        <p>Visit <a href={props.user.html_url}><img src={props.user.avatar_url} alt={props.user.login} className="round-image"></img></a>'s home page</p>
+        <p>Visit <Link to={"/user/"+props.user.login}><img src={props.user.avatar_url} alt={props.user.login} className="round-image"></img></Link>'s home page</p>
         </div>
         );
     }
