@@ -5,7 +5,7 @@ const Repo=(props) => {
     if(props.repository)
     {
         return (
-        <div className="repo">
+                    <div className="repo">
         <h2>{props.repository.name} ({props.repository.full_name})</h2>
         <p>{Boolean(props.repository.private)?"Private":"Public"}</p>
         <p>Created on {new Date(props.repository.created_at).toString()}<br></br>Last updated on {new Date(props.repository.updated_at).toString()}</p>
@@ -22,10 +22,12 @@ const Repo=(props) => {
 <p>Clone this repository by URL {props.repository.clone_url}</p>
 {props.repository.disabled?<p>This project is disabled</p>:<a href={props.repository.html_url} target="_blank">Open {props.repository.full_name} in github (Opens in a new tab)</a>}
                 </div>
-        );
+                        );
     }
     else{
-return <p>No repository.</p>;
+return (
+<p>No repository.</p>
+);
     }
 };
 export default Repo;

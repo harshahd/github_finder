@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import DocumentTitle from "react-document-title";
 
 const User=(match, location) => {
     const param=useParams();
@@ -17,14 +18,17 @@ setUser(rsp.data);
         if(!param.userID)
     {
 return (
+    <DocumentTitle title="No user found">
 <div>
     <h1>No user details</h1>
 <Link to="/">Go to home page</Link>
 </div>
+</DocumentTitle>
 );
     }
 
 return(
+    <DocumentTitle title={param.userID+" - Github finder"}>
     <div className="user-detail">
 <h1>{user.login}</h1>
 <img src={user.avatar_url} alt={"Profile picture of "+user.login}></img>
@@ -38,6 +42,7 @@ return(
 </ul>
 <h2></h2>
 </div>
+</DocumentTitle>
 );
 };
 export default User;

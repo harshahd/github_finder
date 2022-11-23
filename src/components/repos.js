@@ -1,4 +1,5 @@
 import React from "react";
+import DocumentTitle from "react-document-title";
 import { Link, useParams } from "react-router-dom";
 import Repo from './repo.js'
 const Repos=(props) => {
@@ -16,16 +17,20 @@ props.getRepositories(name);
 if(props.repositories.length==0)
 {
 return (
+    <DocumentTitle title="No repositories found - github finder">
 <p>No users to show</p>
+</DocumentTitle>
 );
 }
 else
 {
     return ( 
+        <DocumentTitle title={"Repositories of "+name+" - Github finder"}>
                 <div className="repository-list">
                     <h1>Repositories of <Link to={"/user/"+name}>{name}</Link></h1>
             {getRepos(props.repositories)}
 </div>
+</DocumentTitle>
     ); 
 }
 };
