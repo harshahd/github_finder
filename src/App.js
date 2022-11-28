@@ -12,6 +12,7 @@ import Followers from './components/Followers.js'
 import Following from './components/following.js';
 import Repos from "./components/repos.js";
 import axios from 'axios';
+import Main from "./components/assignment/main";
 
 function App() {
   const [repos,setRepos]=React.useState([]);
@@ -39,6 +40,7 @@ console.log(err);
       <Route exact path='/user/:userID/repos' element={<Repos repositories={repos} getRepositories={getRepos}/>}></Route>
       <Route exact path='/user/:userID/followers' element={<Followers/>}></Route>
       <Route exact path='/user/:userID/following' element={<Following/>}></Route>
+      <Route exact path='/assignment' element={<Main/>}></Route>
       </Routes>
       </div>
 <Footer/>
